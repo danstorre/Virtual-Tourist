@@ -8,13 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		FB1777F51E27F60000C474C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1777F41E27F60000C474C4 /* AppDelegate.swift */; };
-		FB1777F71E27F60000C474C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1777F61E27F60000C474C4 /* ViewController.swift */; };
+		FB1777F71E27F60000C474C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1777F61E27F60000C474C4 /* MapViewController.swift */; };
 		FB1777FA1E27F60000C474C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1777F81E27F60000C474C4 /* Main.storyboard */; };
 		FB1777FD1E27F60000C474C4 /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB1777FB1E27F60000C474C4 /* VirtualTourist.xcdatamodeld */; };
 		FB1777FF1E27F60000C474C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1777FE1E27F60000C474C4 /* Assets.xcassets */; };
 		FB1778021E27F60000C474C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1778001E27F60000C474C4 /* LaunchScreen.storyboard */; };
-		FB17780D1E27F60000C474C4 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17780C1E27F60000C474C4 /* VirtualTouristTests.swift */; };
+		FB17780D1E27F60000C474C4 /* FlickrAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17780C1E27F60000C474C4 /* FlickrAPITests.swift */; };
 		FB1778181E27F60000C474C4 /* VirtualTouristUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778171E27F60000C474C4 /* VirtualTouristUITests.swift */; };
+		FB17782B1E27F99F00C474C4 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17782A1E27F99F00C474C4 /* ExtensionViewController.swift */; };
+		FB17782D1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17782C1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift */; };
+		FB17782F1E27FA8200C474C4 /* GCDMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17782E1E27FA8200C474C4 /* GCDMethods.swift */; };
+		FB1778331E27FB7100C474C4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778321E27FB7100C474C4 /* Api.swift */; };
+		FB1778351E27FB9A00C474C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778341E27FB9A00C474C4 /* Network.swift */; };
+		FB1778371E2803A200C474C4 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */; };
+		FB1778391E2803F300C474C4 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778381E2803F300C474C4 /* FlickrAPI.swift */; };
+		FB17783D1E2804AE00C474C4 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */; };
+		FB17783F1E2804F500C474C4 /* ConstatsFlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */; };
+		FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */; };
+		FB1778441E29248700C474C4 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778431E29248700C474C4 /* Pin.swift */; };
+		FB1778461E29249E00C474C4 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778451E29249E00C474C4 /* Image.swift */; };
+		FB1778481E2924CB00C474C4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778471E2924CB00C474C4 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,18 +50,31 @@
 /* Begin PBXFileReference section */
 		FB1777F11E27F60000C474C4 /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1777F41E27F60000C474C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB1777F61E27F60000C474C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB1777F61E27F60000C474C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FB1777F91E27F60000C474C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB1777FC1E27F60000C474C4 /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
 		FB1777FE1E27F60000C474C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1778011E27F60000C474C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1778031E27F60000C474C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB1778081E27F60000C474C4 /* VirtualTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB17780C1E27F60000C474C4 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
+		FB17780C1E27F60000C474C4 /* FlickrAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPITests.swift; sourceTree = "<group>"; };
 		FB17780E1E27F60000C474C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB1778131E27F60000C474C4 /* VirtualTouristUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTouristUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1778171E27F60000C474C4 /* VirtualTouristUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristUITests.swift; sourceTree = "<group>"; };
 		FB1778191E27F60000C474C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB17782A1E27F99F00C474C4 /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		FB17782C1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitViewDelegateOntheMap.swift; sourceTree = "<group>"; };
+		FB17782E1E27FA8200C474C4 /* GCDMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDMethods.swift; sourceTree = "<group>"; };
+		FB1778321E27FB7100C474C4 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		FB1778341E27FB9A00C474C4 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
+		FB1778381E2803F300C474C4 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
+		FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstatsFlickrAPI.swift; sourceTree = "<group>"; };
+		FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumAPI.swift; sourceTree = "<group>"; };
+		FB1778431E29248700C474C4 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		FB1778451E29249E00C474C4 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		FB1778471E2924CB00C474C4 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +125,15 @@
 		FB1777F31E27F60000C474C4 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				FB1778251E27F7ED00C474C4 /* View Controller */,
+				FB1778261E27F7F600C474C4 /* Model View */,
+				FB1778271E27F7FD00C474C4 /* View */,
+				FB1778281E27F80200C474C4 /* Model */,
+				FB1778291E27F81400C474C4 /* Resources */,
 				FB1777F41E27F60000C474C4 /* AppDelegate.swift */,
-				FB1777F61E27F60000C474C4 /* ViewController.swift */,
 				FB1777F81E27F60000C474C4 /* Main.storyboard */,
-				FB1777FE1E27F60000C474C4 /* Assets.xcassets */,
 				FB1778001E27F60000C474C4 /* LaunchScreen.storyboard */,
 				FB1778031E27F60000C474C4 /* Info.plist */,
-				FB1777FB1E27F60000C474C4 /* VirtualTourist.xcdatamodeld */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";
@@ -113,7 +141,7 @@
 		FB17780B1E27F60000C474C4 /* VirtualTouristTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB17780C1E27F60000C474C4 /* VirtualTouristTests.swift */,
+				FB17780C1E27F60000C474C4 /* FlickrAPITests.swift */,
 				FB17780E1E27F60000C474C4 /* Info.plist */,
 			);
 			path = VirtualTouristTests;
@@ -126,6 +154,57 @@
 				FB1778191E27F60000C474C4 /* Info.plist */,
 			);
 			path = VirtualTouristUITests;
+			sourceTree = "<group>";
+		};
+		FB1778251E27F7ED00C474C4 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB17782A1E27F99F00C474C4 /* ExtensionViewController.swift */,
+				FB1777F61E27F60000C474C4 /* MapViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		FB1778261E27F7F600C474C4 /* Model View */ = {
+			isa = PBXGroup;
+			children = (
+				FB17782C1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift */,
+				FB17782E1E27FA8200C474C4 /* GCDMethods.swift */,
+				FB1778321E27FB7100C474C4 /* Api.swift */,
+				FB1778341E27FB9A00C474C4 /* Network.swift */,
+				FB1778381E2803F300C474C4 /* FlickrAPI.swift */,
+				FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */,
+			);
+			name = "Model View";
+			sourceTree = "<group>";
+		};
+		FB1778271E27F7FD00C474C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FB1778281E27F80200C474C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB1777FB1E27F60000C474C4 /* VirtualTourist.xcdatamodeld */,
+				FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */,
+				FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */,
+				FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */,
+				FB1778431E29248700C474C4 /* Pin.swift */,
+				FB1778451E29249E00C474C4 /* Image.swift */,
+				FB1778471E2924CB00C474C4 /* Location.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FB1778291E27F81400C474C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB1777FE1E27F60000C474C4 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +344,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1777F71E27F60000C474C4 /* ViewController.swift in Sources */,
+				FB17782D1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift in Sources */,
+				FB17782B1E27F99F00C474C4 /* ExtensionViewController.swift in Sources */,
+				FB1778481E2924CB00C474C4 /* Location.swift in Sources */,
+				FB17783F1E2804F500C474C4 /* ConstatsFlickrAPI.swift in Sources */,
+				FB1778391E2803F300C474C4 /* FlickrAPI.swift in Sources */,
+				FB1778351E27FB9A00C474C4 /* Network.swift in Sources */,
+				FB1777F71E27F60000C474C4 /* MapViewController.swift in Sources */,
 				FB1777F51E27F60000C474C4 /* AppDelegate.swift in Sources */,
+				FB1778441E29248700C474C4 /* Pin.swift in Sources */,
+				FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */,
 				FB1777FD1E27F60000C474C4 /* VirtualTourist.xcdatamodeld in Sources */,
+				FB1778331E27FB7100C474C4 /* Api.swift in Sources */,
+				FB17782F1E27FA8200C474C4 /* GCDMethods.swift in Sources */,
+				FB17783D1E2804AE00C474C4 /* LocationAnnotation.swift in Sources */,
+				FB1778371E2803A200C474C4 /* ConfigurationNetwork.swift in Sources */,
+				FB1778461E29249E00C474C4 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB17780D1E27F60000C474C4 /* VirtualTouristTests.swift in Sources */,
+				FB17780D1E27F60000C474C4 /* FlickrAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +610,7 @@
 				FB17781E1E27F60000C474C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB17781F1E27F60000C474C4 /* Build configuration list for PBXNativeTarget "VirtualTouristTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +619,7 @@
 				FB1778211E27F60000C474C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB1778221E27F60000C474C4 /* Build configuration list for PBXNativeTarget "VirtualTouristUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +628,7 @@
 				FB1778241E27F60000C474C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
