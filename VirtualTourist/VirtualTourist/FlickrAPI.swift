@@ -13,8 +13,8 @@ import MapKit
 protocol PhotoAlbumProtocol {
     
     
-    func getPhotosFrom(location: CLLocationCoordinate2D, completionHandlerForGettingPhotos: @escaping (_ photos: [Image]?, _ error: NSError?) -> Void)
-    func getRandomPhoto(location: CLLocationCoordinate2D, completionHandlerForGettingPhotos: @escaping (_ photo: [Image]?, _ error: NSError?) -> Void)
+    func getPhotosFrom(pin: Pin, completionHandlerForGettingPhotos: @escaping (_ sucess: Bool, _ error: NSError?) -> Void)
+    func getRandomPhoto(from pin: Pin, completionHandlerForGettingPhotos: @escaping (_ sucess: Bool, _ error: NSError?) -> Void)
     
 }
 
@@ -33,17 +33,17 @@ final class FlickrAPI: Api, PhotoAlbumProtocol {
     
     // MARK:- Get Student Location
     
-    func getRandomPhoto(location: CLLocationCoordinate2D, completionHandlerForGettingPhotos: @escaping ([Image]?, NSError?) -> Void) {
+    func getRandomPhoto(from pin: Pin, completionHandlerForGettingPhotos: @escaping (Bool, NSError?) -> Void) {
         
     }
     
-    func getPhotosFrom(location: CLLocationCoordinate2D, completionHandlerForGettingPhotos: @escaping ([Image]?, NSError?) -> Void) {
+    func getPhotosFrom(pin: Pin, completionHandlerForGettingPhotos: @escaping (Bool, NSError?) -> Void) {
     
         
         let parameters = [
             ConstatsFlickrAPI.FlickrParameterKeys.Method: ConstatsFlickrAPI.FlickrParameterValues.SearchMethod,
             ConstatsFlickrAPI.FlickrParameterKeys.APIKey: ConstatsFlickrAPI.FlickrParameterValues.APIKey,
-            ConstatsFlickrAPI.FlickrParameterKeys.BoundingBox: bboxString(location: location),
+            ConstatsFlickrAPI.FlickrParameterKeys.BoundingBox: bboxString(location: pin.location!.coordinate),
             ConstatsFlickrAPI.FlickrParameterKeys.SafeSearch: ConstatsFlickrAPI.FlickrParameterValues.UseSafeSearch,
             ConstatsFlickrAPI.FlickrParameterKeys.Extras: ConstatsFlickrAPI.FlickrParameterValues.MediumURL,
             ConstatsFlickrAPI.FlickrParameterKeys.Format: ConstatsFlickrAPI.FlickrParameterValues.ResponseFormat,
@@ -55,7 +55,7 @@ final class FlickrAPI: Api, PhotoAlbumProtocol {
             func sendError(_ error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForGettingPhotos(nil, NSError(domain: "getStudentLocation", code: 1, userInfo: userInfo))
+                completionHandlerForGettingPhotos(false, NSError(domain: "getStudentLocation", code: 1, userInfo: userInfo))
             }
             
             guard error == nil else {
@@ -79,12 +79,15 @@ final class FlickrAPI: Api, PhotoAlbumProtocol {
             }
             
             /* GUARD: Is the "photo" key in photosDictionary? */
-            guard let photosArray = photosDictionary[ConstatsFlickrAPI.FlickrResponseKeys.Photo] as? [[String: AnyObject]] else {
+            guard let _ = photosDictionary[ConstatsFlickrAPI.FlickrResponseKeys.Photo] as? [[String: AnyObject]] else {
                 sendError("Cannot find key '\(ConstatsFlickrAPI.FlickrResponseKeys.Photo)' in \(photosDictionary)")
                 return
             }
             
-            completionHandlerForGettingPhotos(Image.arrayOfImages(from: photosArray), nil)
+            //Image.arrayOfImages(from: photosArray, for: pin, in: context)
+            
+            
+           //completionHandlerForGettingPhotos(Image.arrayOfImages(from: photosArray), nil)
             
         })
         
