@@ -8,15 +8,37 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let stack = CoreDataStack(modelName: "VirtualTourist")!
 
+    func preloadData() {
+        
+        guard !UserDefaults.standard.bool(forKey: "didLaunchBefore") else {
+            return
+        }
+        UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+        // Remove previous stuff (if any)
+        do {
+            try stack.dropAllData()
+        } catch {
+            print("Error droping all objects in DB")
+        }
+        
+        let pin = Pin(context: stack.context)
+        let location = Location(coordinate: CLLocationCoordinate2D(latitude: 10.24287841134832, longitude: -66.299706089843355), pin: pin, context: stack.context)
+        stack.save()
+        // Search
+    }
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        preloadData()
         return true
     }
 

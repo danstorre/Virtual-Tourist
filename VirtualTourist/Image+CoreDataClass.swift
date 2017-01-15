@@ -13,11 +13,10 @@ import CoreData
 public class Image: NSManagedObject {
 
     
-    convenience init(data: NSData, pin: Pin, context: NSManagedObjectContext) {
+    convenience init(data: NSData, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "Image", in: context) {
             self.init(entity: ent, insertInto: context)
-            self.pin = pin
             self.creationDate = NSDate()
             self.imageData = data
             
@@ -28,7 +27,6 @@ public class Image: NSManagedObject {
     }
     
     static func dataImageFrom(dictionary: [String:AnyObject])->NSData?{
-        
         
         /* GUARD: Does our photo have a key for 'url_m'? */
         guard let imageUrlString = dictionary[ConstatsFlickrAPI.FlickrResponseKeys.MediumURL] as? String else {
@@ -45,16 +43,18 @@ public class Image: NSManagedObject {
     }
 
     
-    static func arrayOfImages(from dictionary: [[String:AnyObject]], for pin: Pin, in context: NSManagedObjectContext){
-       
+    static func arrayOfImages(from dictionary: [[String:AnyObject]], withPin pin: Pin, in context: NSManagedObjectContext) -> [Image]{
+        var imagesToReturn = [Image]()
         for imageDic in dictionary{
             
             guard let imageData = dataImageFrom(dictionary: imageDic) else {
                 continue
             }
-            let _ = Image(data: imageData, pin: pin, context: context)
+            let image = Image(data: imageData, context: context)
+            image.pin = pin
+            imagesToReturn.append(image)
         }
-        
+        return imagesToReturn
     }
 
 }

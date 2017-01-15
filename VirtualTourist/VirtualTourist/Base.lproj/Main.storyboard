@@ -42,7 +42,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YXv-jN-Rr9">
                                 <rect key="frame" x="-4" y="20" width="383" height="647"/>
                             </mapView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-Yp-qmC">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-Yp-qmC">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -57,8 +57,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a9b-7t-2IA"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="indicator" destination="UYQ-Yp-qmC" id="3t8-c8-HIE"/>
+                        <outlet property="mapView" destination="YXv-jN-Rr9" id="wmd-Zf-qSg"/>
                         <segue destination="YdI-dn-8fA" kind="show" identifier="photoAlbum" id="soP-ne-QRz"/>
                     </connections>
                 </viewController>
@@ -79,16 +82,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-7l-373">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="365-dL-K6A">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="PYI-66-5bp"/>
                                         </constraints>
                                     </mapView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTm-ko-tFq">
-                                        <rect key="frame" x="0.0" y="200" width="343" height="447"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="447"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LHc-ik-KQ5">
                                             <size key="itemSize" width="79" height="67"/>
@@ -129,8 +132,8 @@
                         <constraints>
                             <constraint firstItem="UMM-7l-373" firstAttribute="top" secondItem="zui-cZ-RbY" secondAttribute="bottom" id="LTV-H2-dMR"/>
                             <constraint firstItem="lkp-Jh-dLe" firstAttribute="top" secondItem="UMM-7l-373" secondAttribute="bottom" id="Nqg-Z4-nnd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UMM-7l-373" secondAttribute="trailing" id="VOD-JJ-gbb"/>
-                            <constraint firstItem="UMM-7l-373" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" id="tyG-Oo-9tq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UMM-7l-373" secondAttribute="trailing" constant="-16" id="VOD-JJ-gbb"/>
+                            <constraint firstItem="UMM-7l-373" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" constant="-16" id="tyG-Oo-9tq"/>
                         </constraints>
                     </view>
                     <connections>

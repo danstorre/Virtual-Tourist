@@ -35,6 +35,7 @@ struct ConstatsFlickrAPI {
         static let Text = "text"
         static let BoundingBox = "bbox"
         static let Page = "page"
+        static let per_page = "per_page"
     }
     
     // MARK: Flickr Parameter Values

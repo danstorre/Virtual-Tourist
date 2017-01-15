@@ -22,7 +22,6 @@
 		FB1778351E27FB9A00C474C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778341E27FB9A00C474C4 /* Network.swift */; };
 		FB1778371E2803A200C474C4 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */; };
 		FB1778391E2803F300C474C4 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778381E2803F300C474C4 /* FlickrAPI.swift */; };
-		FB17783D1E2804AE00C474C4 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */; };
 		FB17783F1E2804F500C474C4 /* ConstatsFlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */; };
 		FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */; };
 		FB17784B1E294D1600C474C4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17784A1E294D1600C474C4 /* CoreDataStack.swift */; };
@@ -75,7 +74,6 @@
 		FB1778341E27FB9A00C474C4 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
 		FB1778381E2803F300C474C4 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
-		FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstatsFlickrAPI.swift; sourceTree = "<group>"; };
 		FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumAPI.swift; sourceTree = "<group>"; };
 		FB17784A1E294D1600C474C4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 			children = (
 				FB1778491E294CFA00C474C4 /* CoreData */,
 				FB1777FB1E27F60000C474C4 /* VirtualTourist.xcdatamodeld */,
-				FB17783C1E2804AE00C474C4 /* LocationAnnotation.swift */,
 				FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */,
 				FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */,
 			);
@@ -222,13 +219,13 @@
 		FB1778491E294CFA00C474C4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FBE69D7A1E2A8A8100D0670D /* Pin+CoreDataProperties.swift */,
-				FBE69D7B1E2A8A8100D0670D /* Location+CoreDataProperties.swift */,
-				FBE69D7C1E2A8A8100D0670D /* Image+CoreDataProperties.swift */,
-				FBE69D521E2A809B00D0670D /* Pin+CoreDataClass.swift */,
-				FBE69D501E2A809B00D0670D /* Image+CoreDataClass.swift */,
-				FBE69D4E1E2A809B00D0670D /* Location+CoreDataClass.swift */,
 				FB17784A1E294D1600C474C4 /* CoreDataStack.swift */,
+				FBE69D7A1E2A8A8100D0670D /* Pin+CoreDataProperties.swift */,
+				FBE69D521E2A809B00D0670D /* Pin+CoreDataClass.swift */,
+				FBE69D7B1E2A8A8100D0670D /* Location+CoreDataProperties.swift */,
+				FBE69D4E1E2A809B00D0670D /* Location+CoreDataClass.swift */,
+				FBE69D7C1E2A8A8100D0670D /* Image+CoreDataProperties.swift */,
+				FBE69D501E2A809B00D0670D /* Image+CoreDataClass.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				FBCC00CA1E2A942F00E929DC /* CoreDataCollectionViewController.swift in Sources */,
 				FB17784B1E294D1600C474C4 /* CoreDataStack.swift in Sources */,
 				FB17782F1E27FA8200C474C4 /* GCDMethods.swift in Sources */,
-				FB17783D1E2804AE00C474C4 /* LocationAnnotation.swift in Sources */,
 				FB1778371E2803A200C474C4 /* ConfigurationNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,11 +16,21 @@ class FlickrAPITests: XCTestCase {
         
         let api = FlickrAPI()
         let expectationSuccess = expectation(description: "Success photo album Expectations")
-        let locationToSearch = CLLocationCoordinate2D(latitude: 50, longitude: 50)
         
-        api.getPhotosFrom(location: locationToSearch) { (photoAlbum, error) in
+        let stack = CoreDataStack(modelName: "VirtualTourist")!
         
-            
+        // Remove previous stuff (if any)
+        do {
+            try stack.dropAllData()
+        } catch {
+            print("Error droping all objects in DB")
+        }
+        
+        let pin = Pin(context: stack.context)
+        let location = Location(coordinate: CLLocationCoordinate2D(latitude: 50, longitude: 50), pin: pin, context: stack.context)
+        
+        api.getPhotosFrom(pin: pin, savThemIn: stack.context) { (photoAlbum, error) in
+        
             guard error == nil else {
                 print(error!.description)
                 return XCTFail(error!.description)

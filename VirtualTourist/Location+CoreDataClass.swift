@@ -11,9 +11,19 @@ import CoreData
 import MapKit
 
 
-public class Location: NSManagedObject {
+public class Location: NSManagedObject, MKAnnotation {
 
-    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    struct properties {
+        
+        static let longitud = "longitud"
+        static let latitude = "latitude"
+        static let pin = "pin"
+    }
+    
+    public var coordinate: CLLocationCoordinate2D  {
+        return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitud)
+    }
     
     convenience init(coordinate: CLLocationCoordinate2D, pin: Pin, context: NSManagedObjectContext) {
         
@@ -22,8 +32,8 @@ public class Location: NSManagedObject {
             self.init(entity: ent, insertInto: context)
             self.latitude = Double(coordinate.latitude)
             self.longitud = Double(coordinate.longitude)
-            self.pin = pin
             self.creationDate = NSDate()
+            self.pin = pin
             
             
         } else {
@@ -31,6 +41,7 @@ public class Location: NSManagedObject {
         }
         
     }
+    
     
     
 }
