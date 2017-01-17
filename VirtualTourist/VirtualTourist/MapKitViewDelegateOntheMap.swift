@@ -13,6 +13,15 @@ class MapKitViewDelegateOntheMap: NSObject, MKMapViewDelegate {
     
     var annotationIdentifier = "annotionView"
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
+        
+        UserDefaults.standard.set(mapView.visibleMapRect.origin.x, forKey: "visibleMapRectX")
+        UserDefaults.standard.set(mapView.visibleMapRect.origin.y, forKey: "visibleMapRectY")
+        UserDefaults.standard.set(mapView.visibleMapRect.size.height, forKey: "visibleMapheight")
+        UserDefaults.standard.set(mapView.visibleMapRect.size.width, forKey: "visibleMapwidth")
+        
+        
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         

@@ -20,25 +20,18 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureFetchedResultsController()
         configureMap()
         addAnnotions()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-
         super.viewWillDisappear(animated)
     }
-    
-    
     
 }
 
@@ -47,8 +40,25 @@ class MapViewController: UIViewController {
 private extension MapViewController {
     
     func configureMap(){
-        mapView.isRotateEnabled = false
-        mapView.isPitchEnabled = false
+        
+        
+        if let visibleMapRectX = UserDefaults.standard.value(forKey: "visibleMapRectX") as? Double,
+         let visibleMapRectY = UserDefaults.standard.value(forKey: "visibleMapRectY") as? Double,
+             let visibleMapheight = UserDefaults.standard.value(forKey: "visibleMapheight") as? Double,
+            let visibleMapwidth = UserDefaults.standard.value(forKey: "visibleMapwidth") as? Double {
+        
+            mapView.visibleMapRect = MKMapRect(origin: MKMapPoint(x: visibleMapRectX, y: visibleMapRectY), size: MKMapSize(width: visibleMapwidth, height: visibleMapheight))
+            
+        }
+        
+        
+
+        
+        
+        mapView.isRotateEnabled = true
+        mapView.isPitchEnabled = true
+        mapView.isZoomEnabled = true
+        
         mapView.delegate = mapDelegate
         let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGR.minimumPressDuration = 1.6
@@ -84,17 +94,6 @@ private extension MapViewController {
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
         
-        // Get the stack
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let stack = delegate.stack
-        
-        // Create a fetchrequest
-        let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
-        fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        // Create the FetchedResultsController
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController?.delegate = self
         executeSearch()
         
         performUIUpdatesOnMain {
@@ -133,6 +132,22 @@ extension MapViewController{
 // MARK: - CoreDataTableViewController: NSFetchedResultsControllerDelegate
 
 extension MapViewController: NSFetchedResultsControllerDelegate {
+    
+    func configureFetchedResultsController(){
+    
+        // Get the stack
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let stack = delegate.stack
+        
+        // Create a fetchrequest
+        let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        // Create the FetchedResultsController
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController?.delegate = self
+        
+    }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         performUIUpdatesOnMain {
