@@ -34,9 +34,31 @@ class AlbumViewController: CoreDataCollectionViewController {
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: width, height: 95)
+       
+        executeSearch()
         // Do any additional setup after loading the view.
     }
     
+    // MARK: ACtions
+    @IBAction func newAlbumButtonPressed(_ sender: UIButton) {
+        let api = FlickrAPI()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let stack = appDelegate.stack
+        
+        
+        api.getPhotosFrom(pin: pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
+            
+            guard error == nil else {
+                return print(error!.description)
+            }
+            
+            guard let photoAlbum = photoAlbum else {
+                return
+            }
+            
+        }
+    }
 }
 
 
@@ -55,6 +77,8 @@ extension AlbumViewController {
         }
         
         cell.imageView?.image = UIImage(data: imageData as Data)
+        
+        cell.imageView?.contentMode = .scaleAspectFit
         
         return cell
     }

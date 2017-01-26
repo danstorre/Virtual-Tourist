@@ -131,10 +131,14 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-49-PcP">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="NtZ-cY-F2D"/>
                                 </constraints>
                                 <state key="normal" title="New Album"/>
+                                <connections>
+                                    <action selector="newAlbumButtonPressed:" destination="YdI-dn-8fA" eventType="touchUpInside" id="6pe-c6-Z85"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

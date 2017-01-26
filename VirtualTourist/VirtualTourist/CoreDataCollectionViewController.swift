@@ -14,6 +14,7 @@ class CoreDataCollectionViewController: UIViewController {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var blockOperations: [BlockOperation] = []
     
     // MARK: Properties
     
@@ -32,8 +33,6 @@ class CoreDataCollectionViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    
     
 }
 
@@ -57,6 +56,13 @@ extension CoreDataCollectionViewController{
 extension CoreDataCollectionViewController : UICollectionViewDataSource {
     
     // MARK: UICollectionViewDataSource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if let fc = fetchedResultsController {
+            return fc.sections!.count
+        } else {
+            return 0
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -78,33 +84,88 @@ extension CoreDataCollectionViewController : UICollectionViewDataSource {
 
 extension CoreDataCollectionViewController: NSFetchedResultsControllerDelegate {
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        let set = IndexSet(integer: sectionIndex)
-        
-        switch (type) {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch(type){
+            
         case .insert:
-            collectionView?.insertSections(set)
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.insertItems(at: [newIndexPath!])
+                    }
+                })
+            )
+            
         case .delete:
-            collectionView?.deleteSections(set)
-        default:
-            break
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.deleteItems(at: [indexPath!])
+                    }
+                })
+            )
+            
+        case .update:
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.reloadItems(at: [indexPath!])
+                    }
+                })
+            )
+        case .move:
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.moveItem(at: indexPath!, to: newIndexPath!)
+                    }
+                })
+            )
         }
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         
-        switch(type) {
+        switch(type){
+            
         case .insert:
-            collectionView?.insertItems(at: [newIndexPath!])
-        case .delete:
-            collectionView?.deleteItems(at: [indexPath!])
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.insertSections(IndexSet(integer: sectionIndex))
+                    }
+                })
+            )
+            
         case .update:
-            collectionView?.reloadItems(at: [indexPath!])
-        case .move:
-            collectionView?.deleteItems(at: [indexPath!])
-            collectionView?.insertItems(at: [newIndexPath!])
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.reloadSections(IndexSet(integer: sectionIndex))
+                    }
+                })
+            )
+        case .delete:
+            blockOperations.append(
+                BlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.collectionView!.deleteSections(IndexSet(integer: sectionIndex))
+                    }
+                })
+            )
+        default: break
         }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        collectionView!.performBatchUpdates({ () -> Void in
+            for operation: BlockOperation in self.blockOperations {
+                operation.start()
+            }
+        }, completion: { (finished) -> Void in
+            self.blockOperations.removeAll(keepingCapacity: false)
+        })
     }
     
 }

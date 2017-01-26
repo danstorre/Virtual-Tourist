@@ -30,6 +30,8 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+        addAnnotions()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +55,7 @@ class MapViewController: UIViewController {
                 // NSPredicate to the rescue!
                 
                 let coordinateSelectedAnnotation = mapView.selectedAnnotations.last!.coordinate
+            
                 var pinSelected : Pin? = nil
                 
                 for pinFetched in fetchedResultsController!.fetchedObjects! {
