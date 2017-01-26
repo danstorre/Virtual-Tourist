@@ -13,6 +13,14 @@ import CoreData
 public class Image: NSManagedObject {
 
     
+    struct properties {
+        
+        static let creationDate = "creationDate"
+        static let imageData = "imageData"
+        static let pin = "pin"
+        
+    }
+    
     convenience init(data: NSData, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "Image", in: context) {

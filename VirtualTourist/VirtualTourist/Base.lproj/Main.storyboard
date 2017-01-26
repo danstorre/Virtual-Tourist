@@ -13,8 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Oui-Us-GDx">
             <objects>
-                <navigationController navigationBarHidden="YES" id="iQk-TP-6iE" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="iQk-TP-6iE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dKh-cc-u9l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -82,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-7l-373">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="365-dL-K6A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -91,24 +90,24 @@
                                         </constraints>
                                     </mapView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTm-ko-tFq">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="447"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="373"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LHc-ik-KQ5">
-                                            <size key="itemSize" width="79" height="67"/>
+                                            <size key="itemSize" width="79" height="70"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GeR-fQ-r3V">
-                                                <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="GeR-fQ-r3V" customClass="ImageCollectionViewCell" customModule="VirtualTourist" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-hp-h5M">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="70"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -118,27 +117,42 @@
                                                     <constraint firstItem="Xea-hp-h5M" firstAttribute="width" secondItem="GeR-fQ-r3V" secondAttribute="width" id="qvw-fz-XA1"/>
                                                     <constraint firstItem="Xea-hp-h5M" firstAttribute="centerX" secondItem="GeR-fQ-r3V" secondAttribute="centerX" id="zCL-LG-ae9"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="imageView" destination="Xea-hp-h5M" id="cEf-V3-nDN"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
-                                            <outlet property="dataSource" destination="YdI-dn-8fA" id="MNg-ra-6bZ"/>
-                                            <outlet property="delegate" destination="YdI-dn-8fA" id="wnz-eS-3N5"/>
+                                            <outlet property="dataSource" destination="YdI-dn-8fA" id="HIo-CV-cby"/>
+                                            <outlet property="delegate" destination="YdI-dn-8fA" id="0iO-gv-cHR"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-49-PcP">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NtZ-cY-F2D"/>
+                                </constraints>
+                                <state key="normal" title="New Album"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UMM-7l-373" firstAttribute="top" secondItem="zui-cZ-RbY" secondAttribute="bottom" id="LTV-H2-dMR"/>
                             <constraint firstItem="lkp-Jh-dLe" firstAttribute="top" secondItem="UMM-7l-373" secondAttribute="bottom" id="Nqg-Z4-nnd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CNH-49-PcP" secondAttribute="trailing" constant="-16" id="PQR-Mw-n44"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UMM-7l-373" secondAttribute="trailing" constant="-16" id="VOD-JJ-gbb"/>
+                            <constraint firstItem="lkp-Jh-dLe" firstAttribute="top" secondItem="CNH-49-PcP" secondAttribute="bottom" id="XP9-9v-Qb2"/>
+                            <constraint firstItem="CNH-49-PcP" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" constant="-16" id="Zfw-fR-wU2"/>
                             <constraint firstItem="UMM-7l-373" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" constant="-16" id="tyG-Oo-9tq"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="flowLayout" destination="LHc-ik-KQ5" id="yut-Or-oxK"/>
-                        <outlet property="mapView" destination="365-dL-K6A" id="8O9-Tr-gda"/>
+                        <outlet property="collectionView" destination="YTm-ko-tFq" id="h38-5k-NN0"/>
+                        <outlet property="flowLayout" destination="LHc-ik-KQ5" id="nA0-5h-jCF"/>
+                        <outlet property="mapView" destination="365-dL-K6A" id="cCM-Bf-uCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIy-Nn-H4M" userLabel="First Responder" sceneMemberID="firstResponder"/>

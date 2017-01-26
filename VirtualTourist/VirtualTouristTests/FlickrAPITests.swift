@@ -46,7 +46,7 @@ class FlickrAPITests: XCTestCase {
         }
         
         
-        waitForExpectations(timeout: 120.0, handler:nil)
+        waitForExpectations(timeout: 300, handler:nil)
         
     }
     

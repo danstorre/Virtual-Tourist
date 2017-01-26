@@ -17,12 +17,15 @@ class MapViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var mapDelegate = MapKitViewDelegateOntheMap()
     var fetchedResultsController : NSFetchedResultsController<NSFetchRequestResult>?
+    var pinSelected : Pin?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFetchedResultsController()
         configureMap()
         addAnnotions()
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +34,54 @@ class MapViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    //MARK:- Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "photoAlbum" {
+            
+            if let albumViewController = segue.destination as? AlbumViewController {
+                // Create Fetch Request
+                
+                let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Image")
+                
+                fr.sortDescriptors = [NSSortDescriptor(key: Image.properties.creationDate, ascending: false)]
+                
+                // So far we have a search that will match ALL notes. However, we're
+                // only interested in those within the current notebook:
+                // NSPredicate to the rescue!
+                
+                let coordinateSelectedAnnotation = mapView.selectedAnnotations.last!.coordinate
+                var pinSelected : Pin? = nil
+                
+                for pinFetched in fetchedResultsController!.fetchedObjects! {
+                
+                    guard let pin = pinFetched as? Pin else {
+                        continue
+                    }
+                    
+                    if pin.location!.coordinate.latitude == coordinateSelectedAnnotation.latitude &&
+                        pin.location!.coordinate.longitude == coordinateSelectedAnnotation.longitude
+                        {
+                        pinSelected = pin
+                        break
+                    }
+                }
+                
+                let pred = NSPredicate(format: "\(Image.properties.pin) = %@", argumentArray: [pinSelected!])
+                
+                fr.predicate = pred
+                
+                // Create FetchedResultsController
+                let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext:fetchedResultsController!.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+                
+                // Inject it into the albumViewController
+                albumViewController.pinSelected = pinSelected
+                albumViewController.fetchedResultsController = fc
+                
+            }
+        }
     }
     
 }
@@ -50,9 +101,6 @@ private extension MapViewController {
             mapView.visibleMapRect = MKMapRect(origin: MKMapPoint(x: visibleMapRectX, y: visibleMapRectY), size: MKMapSize(width: visibleMapwidth, height: visibleMapheight))
             
         }
-        
-        
-
         
         
         mapView.isRotateEnabled = true

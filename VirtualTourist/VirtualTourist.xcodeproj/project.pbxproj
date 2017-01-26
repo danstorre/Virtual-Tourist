@@ -25,6 +25,8 @@
 		FB17783F1E2804F500C474C4 /* ConstatsFlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */; };
 		FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */; };
 		FB17784B1E294D1600C474C4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17784A1E294D1600C474C4 /* CoreDataStack.swift */; };
+		FB49BC361E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */; };
+		FB73B8EA1E38FBEC00A40FBD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73B8E91E38FBEC00A40FBD /* ImageCollectionViewCell.swift */; };
 		FBCC00CA1E2A942F00E929DC /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC00C91E2A942F00E929DC /* CoreDataCollectionViewController.swift */; };
 		FBCC00CD1E2AA75A00E929DC /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC00CC1E2AA75A00E929DC /* AlbumViewController.swift */; };
 		FBE69D541E2A809B00D0670D /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE69D4E1E2A809B00D0670D /* Location+CoreDataClass.swift */; };
@@ -77,6 +79,8 @@
 		FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstatsFlickrAPI.swift; sourceTree = "<group>"; };
 		FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumAPI.swift; sourceTree = "<group>"; };
 		FB17784A1E294D1600C474C4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewAlbumDelegateOntheMap.swift; sourceTree = "<group>"; };
+		FB73B8E91E38FBEC00A40FBD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBCC00C91E2A942F00E929DC /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		FBCC00CC1E2AA75A00E929DC /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		FBE69D4E1E2A809B00D0670D /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "../Location+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -170,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				FB17782A1E27F99F00C474C4 /* ExtensionViewController.swift */,
-				FB1777F61E27F60000C474C4 /* MapViewController.swift */,
 				FBCC00C91E2A942F00E929DC /* CoreDataCollectionViewController.swift */,
+				FB1777F61E27F60000C474C4 /* MapViewController.swift */,
 				FBCC00CC1E2AA75A00E929DC /* AlbumViewController.swift */,
 			);
 			name = "View Controller";
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FB17782C1E27F9EE00C474C4 /* MapKitViewDelegateOntheMap.swift */,
+				FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */,
 				FB17782E1E27FA8200C474C4 /* GCDMethods.swift */,
 				FB1778321E27FB7100C474C4 /* Api.swift */,
 				FB1778341E27FB9A00C474C4 /* Network.swift */,
@@ -193,6 +198,7 @@
 		FB1778271E27F7FD00C474C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB73B8E91E38FBEC00A40FBD /* ImageCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -376,9 +382,11 @@
 				FB1778351E27FB9A00C474C4 /* Network.swift in Sources */,
 				FBE69D561E2A809B00D0670D /* Image+CoreDataClass.swift in Sources */,
 				FB1777F71E27F60000C474C4 /* MapViewController.swift in Sources */,
+				FB49BC361E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift in Sources */,
 				FBE69D581E2A809B00D0670D /* Pin+CoreDataClass.swift in Sources */,
 				FBCC00CD1E2AA75A00E929DC /* AlbumViewController.swift in Sources */,
 				FB1777F51E27F60000C474C4 /* AppDelegate.swift in Sources */,
+				FB73B8EA1E38FBEC00A40FBD /* ImageCollectionViewCell.swift in Sources */,
 				FBE69D7F1E2A8A8100D0670D /* Image+CoreDataProperties.swift in Sources */,
 				FBE69D7E1E2A8A8100D0670D /* Location+CoreDataProperties.swift in Sources */,
 				FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */,

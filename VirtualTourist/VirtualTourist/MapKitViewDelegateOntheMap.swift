@@ -9,9 +9,10 @@
 import UIKit
 import MapKit
 
+
+let annotationIdentifier = "annotionView"
+
 class MapKitViewDelegateOntheMap: NSObject, MKMapViewDelegate {
-    
-    var annotationIdentifier = "annotionView"
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
         
@@ -20,6 +21,17 @@ class MapKitViewDelegateOntheMap: NSObject, MKMapViewDelegate {
         UserDefaults.standard.set(mapView.visibleMapRect.size.height, forKey: "visibleMapheight")
         UserDefaults.standard.set(mapView.visibleMapRect.size.width, forKey: "visibleMapwidth")
         
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        let navigationController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+        
+        guard let mapViewController = navigationController.visibleViewController as? MapViewController else {
+            return
+        }
+        
+        mapViewController.performSegue(withIdentifier: "photoAlbum", sender: mapViewController)
         
     }
     

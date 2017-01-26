@@ -10,8 +10,10 @@ import UIKit
 import CoreData
 
 
-class CoreDataCollectionViewController: UICollectionViewController {
+class CoreDataCollectionViewController: UIViewController {
     
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Properties
     
@@ -21,15 +23,7 @@ class CoreDataCollectionViewController: UICollectionViewController {
             // reload the table
             fetchedResultsController?.delegate = self
             executeSearch()
-            collectionView?.reloadData()
         }
-    }
-    
-    // MARK: Initializers
-    
-    init(collectionViewLayout layout: UICollectionViewLayout, fetchedResultsController fc : NSFetchedResultsController<NSFetchRequestResult>) {
-        fetchedResultsController = fc
-        super.init(collectionViewLayout: layout)
     }
     
     // Do not worry about this initializer. I has to be implemented
@@ -57,22 +51,14 @@ extension CoreDataCollectionViewController{
     }
 }
 
-// MARK: - CoreDataCollectionViewController (Subclass Must Implement)
-
-extension CoreDataCollectionViewController {
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         fatalError("This method MUST be implemented by a subclass of CoreDataTableViewController")
-    }
-}
 
 // MARK: - CoreDataCollectionViewController (Collection Data Source)
 
-extension CoreDataCollectionViewController {
+extension CoreDataCollectionViewController : UICollectionViewDataSource {
     
     // MARK: UICollectionViewDataSource
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let fc = fetchedResultsController {
             return fc.sections![section].numberOfObjects
@@ -81,6 +67,9 @@ extension CoreDataCollectionViewController {
         }
     }
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        fatalError("This method MUST be implemented by a subclass of CoreDataTableViewController")
+    }
     
 }
 
