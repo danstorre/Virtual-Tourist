@@ -14,7 +14,7 @@ import CoreData
 protocol PhotoAlbumProtocol {
     
     
-    func getPhotosFrom(pin: Pin, savThemIn context: NSManagedObjectContext, completionHandlerForGettingPhotos: @escaping (_ arrayImages: [Image]?, _ error: NSError?) -> Void)
+    func getPhotosFrom(pin: Pin, savThemIn context: NSManagedObjectContext, completionHandlerForGettingPhotos: @escaping (_ arrayImages: [[String: AnyObject]]?, _ error: NSError?) -> Void)
     func getRandomPhoto(from pin: Pin, savThemIn context: NSManagedObjectContext, completionHandlerForGettingPhotos: @escaping (_ arrayImages: [Image]?, _ error: NSError?) -> Void)
     
 }
@@ -38,7 +38,7 @@ final class FlickrAPI: Api, PhotoAlbumProtocol {
         
     }
     
-    func getPhotosFrom(pin: Pin, savThemIn context: NSManagedObjectContext, completionHandlerForGettingPhotos: @escaping ([Image]?, NSError?) -> Void) {
+    func getPhotosFrom(pin: Pin, savThemIn context: NSManagedObjectContext, completionHandlerForGettingPhotos: @escaping ([[String: AnyObject]]?, NSError?) -> Void) {
     
         
         let parameters = [
@@ -86,7 +86,7 @@ final class FlickrAPI: Api, PhotoAlbumProtocol {
                 return
             }
             
-            completionHandlerForGettingPhotos(Image.arrayOfImages(from: photosArray, withPin: pin, in: context), nil)
+            completionHandlerForGettingPhotos(photosArray, nil)
             
         })
         

@@ -80,6 +80,7 @@
 		FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumAPI.swift; sourceTree = "<group>"; };
 		FB17784A1E294D1600C474C4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewAlbumDelegateOntheMap.swift; sourceTree = "<group>"; };
+		FB49BC371E3A96C90089E8A4 /* VirtualTourist 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VirtualTourist 2.xcdatamodel"; sourceTree = "<group>"; };
 		FB73B8E91E38FBEC00A40FBD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBCC00C91E2A942F00E929DC /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		FBCC00CC1E2AA75A00E929DC /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
@@ -672,9 +673,10 @@
 		FB1777FB1E27F60000C474C4 /* VirtualTourist.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FB49BC371E3A96C90089E8A4 /* VirtualTourist 2.xcdatamodel */,
 				FB1777FC1E27F60000C474C4 /* VirtualTourist.xcdatamodel */,
 			);
-			currentVersion = FB1777FC1E27F60000C474C4 /* VirtualTourist.xcdatamodel */;
+			currentVersion = FB49BC371E3A96C90089E8A4 /* VirtualTourist 2.xcdatamodel */;
 			path = VirtualTourist.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

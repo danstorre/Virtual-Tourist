@@ -46,8 +46,7 @@ class AlbumViewController: CoreDataCollectionViewController {
         
         let stack = appDelegate.stack
         
-        
-        api.getPhotosFrom(pin: pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
+        api.getPhotosFrom(pin: self.pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
             
             guard error == nil else {
                 return print(error!.description)
@@ -57,9 +56,16 @@ class AlbumViewController: CoreDataCollectionViewController {
                 return
             }
             
+            
+            stack.performBackgroundBatchOperation({ (workerContext) in
+                Image.arrayOfImages(from: photoAlbum, withPin: self.pinSelected!, in: stack.context)
+            })
+            
+            
         }
     }
 }
+
 
 
 extension AlbumViewController {

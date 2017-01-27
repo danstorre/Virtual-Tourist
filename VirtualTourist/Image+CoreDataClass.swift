@@ -51,7 +51,7 @@ public class Image: NSManagedObject {
     }
 
     
-    static func arrayOfImages(from dictionary: [[String:AnyObject]], withPin pin: Pin, in context: NSManagedObjectContext) -> [Image]{
+    static func arrayOfImages(from dictionary: [[String:AnyObject]], withPin pin: Pin, in context: NSManagedObjectContext){
         var imagesToReturn = [Image]()
         for imageDic in dictionary{
             
@@ -62,7 +62,6 @@ public class Image: NSManagedObject {
             image.pin = pin
             imagesToReturn.append(image)
         }
-        return imagesToReturn
     }
 
 }
