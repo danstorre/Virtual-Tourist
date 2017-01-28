@@ -20,49 +20,28 @@ class AlbumViewController: CoreDataCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureMap()
+        configureCollectionView()
         navigationController?.isNavigationBarHidden = false
-        mapView.isUserInteractionEnabled = false
-        mapView.delegate = mapDelegate
-        mapView.addAnnotation(pinSelected!.location!)
-        let region = MKCoordinateRegionMake(pinSelected!.location!.coordinate, MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-        mapView.setRegion(region, animated: true)
-        
-        let space: CGFloat = 3
-        let width = (view.frame.size.width - (3 * space)) / 4.0
-
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: width, height: 95)
-       
         executeSearch()
-        // Do any additional setup after loading the view.
+        
+        guard let album = pinSelected!.album else {
+            return downloadImages()
+        }
+        
+        if album.count == 0 {
+            downloadImages()
+        }
+        
+        
     }
     
     // MARK: ACtions
     @IBAction func newAlbumButtonPressed(_ sender: UIButton) {
-        let api = FlickrAPI()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let stack = appDelegate.stack
+        downloadImages()
         
-        api.getPhotosFrom(pin: self.pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
-            
-            guard error == nil else {
-                return print(error!.description)
-            }
-            
-            guard let photoAlbum = photoAlbum else {
-                return
-            }
-            
-            
-            stack.performBackgroundBatchOperation({ (workerContext) in
-                Image.arrayOfImages(from: photoAlbum, withPin: self.pinSelected!, in: stack.context)
-            })
-            
-            
-        }
     }
 }
 
@@ -87,6 +66,53 @@ extension AlbumViewController {
         cell.imageView?.contentMode = .scaleAspectFit
         
         return cell
+    }
+    
+    //MARK:- Photo Methods
+    
+    func downloadImages(){
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let stack = appDelegate.stack
+        
+        FlickrAPI.shared.getPhotosFrom(pin: self.pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
+            
+            guard error == nil else {
+                return print(error!.description)
+            }
+            
+            guard let photoAlbum = photoAlbum else {
+                return
+            }
+            
+            stack.performBackgroundBatchOperation({ (workerContext) in
+                Image.arrayOfImages(from: photoAlbum, withPin: self.pinSelected!, in: stack.context)
+            })
+        }
+    }
+    
+    //MARK:- helper methods
+    
+    func configureCollectionView() {
+        
+        let space: CGFloat = 3
+        let width = (view.frame.size.width - (3 * space)) / 4.0
+        
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: width, height: 95)
+        
+    }
+    
+    
+    func configureMap() {
+        mapView.isUserInteractionEnabled = false
+        mapView.delegate = mapDelegate
+        mapView.addAnnotation(pinSelected!.location!)
+        let region = MKCoordinateRegionMake(pinSelected!.location!.coordinate, MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        mapView.setRegion(region, animated: true)
     }
     
 }
