@@ -29,14 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error droping all objects in DB")
         }
         
-        stack.performBackgroundBatchOperation { (workerContext) in
-            let pin = Pin(context: workerContext)
-            let _ = Location(coordinate: CLLocationCoordinate2D(latitude: 10.24287841134832, longitude: -66.299706089843355), pin: pin, context: workerContext)
-        }
+        let pin = Pin(context: stack.context)
+        let location = Location(coordinate: CLLocationCoordinate2D(latitude: 10.24287841134832, longitude: -66.299706089843355), pin: pin, context: stack.context)
+        location.pin = pin
         
-        
+        stack.save()
     }
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

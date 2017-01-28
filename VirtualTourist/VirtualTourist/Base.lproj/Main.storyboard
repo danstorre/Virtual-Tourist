@@ -81,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UMM-7l-373">
-                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="529"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="365-dL-K6A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -90,7 +90,7 @@
                                         </constraints>
                                     </mapView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTm-ko-tFq">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="373"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="329"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LHc-ik-KQ5">
                                             <size key="itemSize" width="79" height="70"/>
@@ -129,6 +129,12 @@
                                     </collectionView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No images" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1S-Bw-i8X">
+                                <rect key="frame" x="147" y="448" width="81.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-49-PcP">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,6 +142,9 @@
                                     <constraint firstAttribute="height" constant="44" id="NtZ-cY-F2D"/>
                                 </constraints>
                                 <state key="normal" title="New Album"/>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="newAlbumButtonPressed:" destination="YdI-dn-8fA" eventType="touchUpInside" id="6pe-c6-Z85"/>
                                 </connections>
@@ -144,19 +153,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UMM-7l-373" firstAttribute="top" secondItem="zui-cZ-RbY" secondAttribute="bottom" id="LTV-H2-dMR"/>
-                            <constraint firstItem="lkp-Jh-dLe" firstAttribute="top" secondItem="UMM-7l-373" secondAttribute="bottom" id="Nqg-Z4-nnd"/>
+                            <constraint firstItem="Z1S-Bw-i8X" firstAttribute="centerY" secondItem="YTm-ko-tFq" secondAttribute="centerY" id="LUV-iR-11D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CNH-49-PcP" secondAttribute="trailing" constant="-16" id="PQR-Mw-n44"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UMM-7l-373" secondAttribute="trailing" constant="-16" id="VOD-JJ-gbb"/>
                             <constraint firstItem="lkp-Jh-dLe" firstAttribute="top" secondItem="CNH-49-PcP" secondAttribute="bottom" id="XP9-9v-Qb2"/>
                             <constraint firstItem="CNH-49-PcP" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" constant="-16" id="Zfw-fR-wU2"/>
+                            <constraint firstItem="Z1S-Bw-i8X" firstAttribute="centerX" secondItem="YTm-ko-tFq" secondAttribute="centerX" id="quI-ow-JQl"/>
                             <constraint firstItem="UMM-7l-373" firstAttribute="leading" secondItem="T8L-Bd-vTy" secondAttribute="leadingMargin" constant="-16" id="tyG-Oo-9tq"/>
+                            <constraint firstItem="CNH-49-PcP" firstAttribute="top" secondItem="UMM-7l-373" secondAttribute="bottom" id="xuz-cr-KRD"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="YTm-ko-tFq" id="h38-5k-NN0"/>
+                        <outlet property="downloadButton" destination="CNH-49-PcP" id="o7y-Et-hqv"/>
                         <outlet property="flowLayout" destination="LHc-ik-KQ5" id="nA0-5h-jCF"/>
                         <outlet property="mapView" destination="365-dL-K6A" id="cCM-Bf-uCd"/>
+                        <outlet property="noImagesLabel" destination="Z1S-Bw-i8X" id="rDf-eA-ztX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIy-Nn-H4M" userLabel="First Responder" sceneMemberID="firstResponder"/>

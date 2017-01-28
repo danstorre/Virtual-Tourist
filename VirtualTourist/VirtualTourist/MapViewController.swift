@@ -102,7 +102,6 @@ private extension MapViewController {
             let visibleMapwidth = UserDefaults.standard.value(forKey: "visibleMapwidth") as? Double {
         
             mapView.visibleMapRect = MKMapRect(origin: MKMapPoint(x: visibleMapRectX, y: visibleMapRectY), size: MKMapSize(width: visibleMapwidth, height: visibleMapheight))
-            
         }
         
         
@@ -130,10 +129,10 @@ private extension MapViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let stack = appDelegate.stack
         
-        let newPin = Pin(context: stack.context)
-        let location = Location(coordinate: coordinatesFromTouch, pin: newPin, context: stack.context)
-        location.pin = newPin
-        
+        let pin = Pin(context: stack.context)
+        let location = Location(coordinate: coordinatesFromTouch, pin: pin, context: stack.context)
+        location.pin = pin
+
     }
     
     
