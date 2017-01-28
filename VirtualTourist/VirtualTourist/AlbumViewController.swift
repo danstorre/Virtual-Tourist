@@ -34,9 +34,12 @@ class AlbumViewController: CoreDataCollectionViewController {
         if album.count == 0 {
             noImagesLabel.isHidden = false
             downloadImages()
+            downloadButton.isEnabled = false
             downloadButton.isUserInteractionEnabled = false
         }else{
             noImagesLabel.isHidden = true
+            downloadButton.isEnabled = true
+            downloadButton.isUserInteractionEnabled = true
         }
         
     }
@@ -48,12 +51,30 @@ class AlbumViewController: CoreDataCollectionViewController {
     // MARK: ACtions
     @IBAction func newAlbumButtonPressed(_ sender: UIButton) {
         
-        downloadImages()
         
+        for indexp in collectionView.indexPathsForVisibleItems {
+            if let context = fetchedResultsController?.managedObjectContext,
+                let image = fetchedResultsController?.object(at: indexp) as? Image
+            {
+                context.delete(image)
+            }
+        }
+        downloadImages()
+        downloadButton.isEnabled = false
+        downloadButton.isUserInteractionEnabled = false
     }
 }
 
+extension AlbumViewController : UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let context = fetchedResultsController?.managedObjectContext,
+           let image = fetchedResultsController?.object(at: indexPath) as? Image
+        {
+            context.delete(image)
+        }
+    }
+}
 
 extension AlbumViewController {
 
@@ -88,12 +109,9 @@ extension AlbumViewController {
         
         FlickrAPI.shared.getPhotosFrom(pin: self.pinSelected!, savThemIn: stack.context) { (photoAlbum, error) in
             
-            
-            
             guard error == nil else {
                 return print(error!.description)
             }
-            
             
             guard let photoAlbum = photoAlbum else {
                 return
@@ -107,6 +125,7 @@ extension AlbumViewController {
                 Image.arrayOfImages(from: photoAlbum, withPin: self.pinSelected!, in: stack.context)
                 performUIUpdatesOnMain {
                     self.downloadButton.isUserInteractionEnabled = true
+                    self.downloadButton.isEnabled = true
                 }
             })
         }
@@ -122,7 +141,7 @@ extension AlbumViewController {
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: width, height: 95)
-        
+        collectionView.allowsMultipleSelection = false
     }
     
     
