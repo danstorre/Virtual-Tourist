@@ -121,8 +121,21 @@ extension AlbumViewController {
                 self.noImagesLabel.isHidden = true
             }
             
+            var numberOfImages = photoAlbum.count
+            let placeHolder : UIImage = #imageLiteral(resourceName: "placeholder")
+            let data = UIImagePNGRepresentation(placeHolder)! as NSData
+            var arrayOfImagesToDownload =  [Image]()
+            
             stack.performBackgroundBatchOperation({ (workerContext) in
-                Image.arrayOfImages(from: photoAlbum, withPin: self.pinSelected!, in: stack.context)
+                repeat
+                {
+                    let imageWithPlaceHolder = Image(data: data, context: stack.context)
+                    imageWithPlaceHolder.pin = self.pinSelected!
+                    arrayOfImagesToDownload.append(imageWithPlaceHolder)
+                    numberOfImages -= 1
+                }while numberOfImages > 0
+                
+                Image.downloadImages(from: photoAlbum, withPin: self.pinSelected!, to: arrayOfImagesToDownload)
                 performUIUpdatesOnMain {
                     self.downloadButton.isUserInteractionEnabled = true
                     self.downloadButton.isEnabled = true

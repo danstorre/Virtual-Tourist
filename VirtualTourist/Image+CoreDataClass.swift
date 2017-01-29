@@ -21,7 +21,7 @@ public class Image: NSManagedObject {
         
     }
     
-    convenience init(data: NSData, context: NSManagedObjectContext) {
+    convenience init(data: NSData? = nil, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "Image", in: context) {
             self.init(entity: ent, insertInto: context)
@@ -33,6 +33,7 @@ public class Image: NSManagedObject {
         }
         
     }
+    
     
     static func dataImageFrom(dictionary: [String:AnyObject])->NSData?{
         
@@ -50,6 +51,18 @@ public class Image: NSManagedObject {
         
     }
 
+    static func downloadImages(from dictionary: [[String:AnyObject]], withPin pin: Pin, to images: [Image]){
+    
+        let enumaratedDict = dictionary.enumerated()
+        for imageDic in enumaratedDict {
+            guard let imageData = dataImageFrom(dictionary: imageDic.element) else {
+                continue
+            }
+            
+            let imageFromIndexInImages = images[imageDic.offset]
+            imageFromIndexInImages.imageData = imageData
+        }
+    }
     
     static func arrayOfImages(from dictionary: [[String:AnyObject]], withPin pin: Pin, in context: NSManagedObjectContext){
         var imagesToReturn = [Image]()
