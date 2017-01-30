@@ -45,6 +45,7 @@ class AlbumViewController: CoreDataCollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         collectionView.reloadData()
     }
     
@@ -117,7 +118,7 @@ extension AlbumViewController {
                 return
             }
             
-            performUIUpdatesOnMain {
+            self.performUIUpdatesOnMain {
                 self.noImagesLabel.isHidden = true
             }
             
@@ -136,7 +137,7 @@ extension AlbumViewController {
                 }while numberOfImages > 0
                 
                 Image.downloadImages(from: photoAlbum, withPin: self.pinSelected!, to: arrayOfImagesToDownload)
-                performUIUpdatesOnMain {
+                self.performUIUpdatesOnMain {
                     self.downloadButton.isUserInteractionEnabled = true
                     self.downloadButton.isEnabled = true
                 }

@@ -23,7 +23,6 @@
 		FB1778371E2803A200C474C4 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */; };
 		FB1778391E2803F300C474C4 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778381E2803F300C474C4 /* FlickrAPI.swift */; };
 		FB17783F1E2804F500C474C4 /* ConstatsFlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */; };
-		FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */; };
 		FB17784B1E294D1600C474C4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB17784A1E294D1600C474C4 /* CoreDataStack.swift */; };
 		FB49BC361E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */; };
 		FB73B8EA1E38FBEC00A40FBD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73B8E91E38FBEC00A40FBD /* ImageCollectionViewCell.swift */; };
@@ -77,7 +76,6 @@
 		FB1778361E2803A200C474C4 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
 		FB1778381E2803F300C474C4 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		FB17783E1E2804F500C474C4 /* ConstatsFlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstatsFlickrAPI.swift; sourceTree = "<group>"; };
-		FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumAPI.swift; sourceTree = "<group>"; };
 		FB17784A1E294D1600C474C4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FB49BC351E3A31CA0089E8A4 /* MapViewAlbumDelegateOntheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewAlbumDelegateOntheMap.swift; sourceTree = "<group>"; };
 		FB49BC371E3A96C90089E8A4 /* VirtualTourist 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VirtualTourist 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				FB1778321E27FB7100C474C4 /* Api.swift */,
 				FB1778341E27FB9A00C474C4 /* Network.swift */,
 				FB1778381E2803F300C474C4 /* FlickrAPI.swift */,
-				FB1778411E2807C500C474C4 /* PhotoAlbumAPI.swift */,
 			);
 			name = "Model View";
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				FB73B8EA1E38FBEC00A40FBD /* ImageCollectionViewCell.swift in Sources */,
 				FBE69D7F1E2A8A8100D0670D /* Image+CoreDataProperties.swift in Sources */,
 				FBE69D7E1E2A8A8100D0670D /* Location+CoreDataProperties.swift in Sources */,
-				FB1778421E2807C500C474C4 /* PhotoAlbumAPI.swift in Sources */,
 				FB1777FD1E27F60000C474C4 /* VirtualTourist.xcdatamodeld in Sources */,
 				FB1778331E27FB7100C474C4 /* Api.swift in Sources */,
 				FBCC00CA1E2A942F00E929DC /* CoreDataCollectionViewController.swift in Sources */,

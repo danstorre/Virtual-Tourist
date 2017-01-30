@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Network: NSObject {
+struct Network {
     
     // MARK: Properties
     
@@ -23,8 +23,6 @@ class Network: NSObject {
     var scheme = ""
     var httpheaders : [String:String]? = nil
     var host = ""
-    
-    
     
     // Mark: Get
     func taskForGetMethod(api: Api, params: [String:AnyObject]?, with pathExtension: String? = nil, and json: Data? = nil,completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {

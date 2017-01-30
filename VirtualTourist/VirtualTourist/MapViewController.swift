@@ -208,13 +208,7 @@ extension MapViewController: NSFetchedResultsControllerDelegate {
                 return
             }
             self.mapView.addAnnotation(pin.location!)
-        case .delete: break
-            //collectionView?.deleteItems(at: [indexPath!])
-        case .update: break
-            //collectionView?.reloadItems(at: [indexPath!])
-        case .move: break
-//            collectionView?.deleteItems(at: [indexPath!])
-//            collectionView?.insertItems(at: [newIndexPath!])
+        default: break
         }
         }
     }

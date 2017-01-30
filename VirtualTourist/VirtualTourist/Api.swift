@@ -10,6 +10,6 @@ import UIKit
 
 class Api : NSObject {
 
-    let networkController = Network()
+    var networkController = Network()
     
 }
